@@ -1,0 +1,25 @@
+services:
+  db:
+    image: rugusa/mi_cine:v1
+    container_name: contenedorMiCine
+    ports:
+      - "3306:3306"
+
+  php:
+    image: rugusa/mi_app_cine:v1
+    container_name: contenedorMiApp
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  phpmyadmin:
+     image: phpmyadmin/phpmyadmin:latest
+     container_name: contenedorPhpMyAdmin
+     environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: contrasenyaRoot
+     ports:
+      - "8081:80"
+     depends_on:
+       - db
