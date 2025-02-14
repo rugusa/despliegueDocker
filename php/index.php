@@ -63,7 +63,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-    <h1>Listado de Películas</h1>
+    <h1>Listado2 de Películas</h1>
     <table>
         <thead>
             <tr>
